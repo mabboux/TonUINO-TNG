@@ -33,9 +33,9 @@
  * um einen speziellen Chip auf dem DfMiniMp3 Player zu ünterstützen bitte in eine der nächste Zeilen den Kommentar entfernen
  */
 //#define DFMiniMp3_T_CHIP_GD3200B
-//#define DFMiniMp3_T_CHIP_MH2024K16SS
+#define DFMiniMp3_T_CHIP_MH2024K16SS
 //#define DFMiniMp3_T_CHIP_LISP3
-#define DFMiniMp3_T_CHIP_Mp3ChipIncongruousNoAck
+//#define DFMiniMp3_T_CHIP_Mp3ChipIncongruousNoAck
 
 /* uncomment the below line to disable shutdown via button (long press play/pause)
  * um ein Shutdown via Taste (long press Play/Pause) zu unterdrücken bitte in der nächste Zeile den Kommentar entfernen
@@ -72,8 +72,8 @@ inline constexpr uint8_t   potiPin    = A5 ; // AiO/Classic A5
  * um den Neo Ring zu unterstützen bitte in der nächste Zeile den Kommentar entfernen
  * um weitere Features einzuschalten, auch den Kommentar für NEO_RING_EXT entfernen
  */
-//#define NEO_RING
-//#define NEO_RING_EXT
+#define NEO_RING
+#define NEO_RING_EXT
 #ifdef ALLinONE_Plus
 inline constexpr uint8_t neoPixelRingPin = 10; // PB2 on AiOplus (Erweiterungsleiste (Female))
 #else
