@@ -90,6 +90,26 @@ Die SD Karte (Ordner mp3 und advert) hat sich gegenüber der Version 3.1.11 geä
 
 # Change Log
 
+## Version 3.2.1 (25.03.2025)
+- [Issue 265](https://github.com/tonuino/TonUINO-TNG/issues/265): Optonal Feature: Jukebox modifier card
+
+## Version 3.2.1 (16.01.2025)
+- [Issue 261](https://github.com/tonuino/TonUINO-TNG/issues/261): Increase the number of addidional Tracks for Mode "Hoerbuch einzeln" to 30
+- [Issue 263](https://github.com/tonuino/TonUINO-TNG/issues/263): Initialization: increase delay between the tries of setting volume
+
+## Version 3.2.1 (13.01.2025)
+- [Issue 135](https://github.com/tonuino/TonUINO-TNG/issues/135): Make new variants available for online uploads II
+- [Issue 254](https://github.com/tonuino/TonUINO-TNG/issues/254): Enhance configuration in constants.hpp
+- [Issue 245](https://github.com/tonuino/TonUINO-TNG/issues/245): Support NFC 215 Tags
+
+## Version 3.2.1 (23.11.2024)
+- [Issue 251](https://github.com/tonuino/TonUINO-TNG/issues/251): Changes to enable configuration of showdown behavior
+- [Issue 250](https://github.com/tonuino/TonUINO-TNG/issues/250): Update the non-German texts for advert and mp3 tracks
+- [Issue 248](https://github.com/tonuino/TonUINO-TNG/issues/248): Add the possibility to change the antenna gain of the RFRC522 module
+
+## Version 3.2.1 (14.11.2024)
+- [Issue 246](https://github.com/tonuino/TonUINO-TNG/issues/246): With LKP Player there is no pling on startup
+
 ## Version 3.2.1 (13.10.2024)
 - [Issue 238](https://github.com/tonuino/TonUINO-TNG/issues/238): Pololu sometimes does not switch off in sleep mode
 - [Issue 240](https://github.com/tonuino/TonUINO-TNG/issues/240): Some code restructuring

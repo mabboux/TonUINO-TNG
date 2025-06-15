@@ -24,6 +24,8 @@
  * headphone jack detection|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   | x |
  * special start shortcut  |   |   |   |   |   |   | x |   |   |   |   |   |   |   |   |   |
  * bat voltage measurement |   |   |   |   |   | x |   |   |   |   |   |   |   |   |   |   |
+ * Bluetooth ON/OFF        |   |   |   |   |   |   |   |   |   |   | x*|   |   | x |   |   |
+ * Bluetooth Pairing       |   |   |   |   |   |   |   |   |   |   |   | x*|   |   |   | x |
  * #########################################################################################
  *
  * (*) Hardware Serial on Every
@@ -279,9 +281,14 @@ inline constexpr uint8_t   specialStartShortcutTrack   = 1;
  * um die Unterstützung des BT Modules zu aktivieren, in der nächste Zeile den Kommentar entfernen
  */
 //#define BT_MODULE
+#ifdef DFPlayerUsesHardwareSerial
 inline constexpr uint8_t   btModuleOnPin               =  2; // D2
-inline constexpr levelType btModuleOnPinType           = levelType::activeHigh;
 inline constexpr uint8_t   btModulePairingPin          =  3; // D3
+#else
+inline constexpr uint8_t   btModuleOnPin               =  6; // D6
+inline constexpr uint8_t   btModulePairingPin          =  8; // D8
+#endif
+inline constexpr levelType btModuleOnPinType           = levelType::activeHigh;
 inline constexpr levelType btModulePairingPinType      = levelType::activeHigh;
 inline constexpr unsigned long btModulePairingPulse    = 500;
 
@@ -314,10 +321,34 @@ inline constexpr float   batVoltageEmpty               = 2.90;
 
 // ######################################################################
 
-/* uncomment the below line if you use Pololu Powerswitch for shutdown
- * wenn der Pololu Powerswitch für das Shutdown verwendet wird, in der nächste Zeile den Kommentar entfernen
+/* uncomment the below lines if you use Pololu Powerswitch or Traeger Platine for shutdown
+ * wenn der Pololu Powerswitch oder die Traeger Platine für das Shutdown verwendet wird, in den nächsten Zeile den Kommentar entfernen
  */
 //#define USE_POLOLU_SHUTDOWN
+//#define USE_TRAEGER_PLATINE_SHUTDOWN
+
+// ######################################################################
+
+/* uncomment one of the below lines if you want to change the antenna gain of the MFRC522 module
+ * wenn die Antennenverstärkung des MFRC522 Modules verändert werden soll, in der nächsten Zeilen einen Kommentar entfernen
+ */
+//#define MRFC522_RX_GAIN RxGain_18dB
+//#define MRFC522_RX_GAIN RxGain_23dB
+//#define MRFC522_RX_GAIN RxGain_33dB // default
+//#define MRFC522_RX_GAIN RxGain_38dB
+//#define MRFC522_RX_GAIN RxGain_43dB
+//#define MRFC522_RX_GAIN RxGain_48dB
+//#define MRFC522_RX_GAIN RxGain_min  // 18dB
+//#define MRFC522_RX_GAIN RxGain_avg  // 33dB
+//#define MRFC522_RX_GAIN RxGain_max  // 48dB
+
+// ######################################################################
+
+/* uncomment the below lines if you want to have the Jukebox modification card
+ * wenn du die Jukebox haben willst, in den nächsten Zeile den Kommentar entfernen
+ */
+//#define MODIFICATION_CARD_JUKEBOX
+inline constexpr uint8_t jukebox_max_cards  = 10;
 
 /* #################################################################################################
  * ##### normally, you don't have to edit lines below                   ############################

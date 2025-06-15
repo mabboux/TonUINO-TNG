@@ -76,6 +76,16 @@ void Mp3::init() {
 
   setEq(static_cast<DfMp3_Eq>(settings.eq - 1));
 
+  startTrackTimer.start(6000); // 6 seconds
+  while (not startTrackTimer.isExpired() && (getTotalTrackCount() == 0)) {
+    delay(100);
+    loop();
+  }
+  startTrackTimer.stop();
+
+  LOG(mp3_log, s_info, F("track_count: "), getTotalTrackCount());
+  delay(1000);
+
   loop();
 }
 
@@ -303,10 +313,11 @@ bool Mp3::setVolume() {
   LOG(mp3_log, s_debug, F("setVolume: "), volume);
   startTrackTimer.start(6000); // 6 seconds
   while(not startTrackTimer.isExpired() && (Base::getVolume() != *volume)) {
+    delay(200);
     loop();
-    delay(100);
     Base::setVolume(*volume);
-    delay(100);
+    delay(200);
+    loop();
   }
   if (not startTrackTimer.isActive()) {
     return false;
